@@ -28,4 +28,4 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: sidebobshow/comfyui-LTX-cuda12.8:v1
+          tags: sidebobshow/comfyui-ltx-cuda12.8:v1
