@@ -11,10 +11,10 @@ RUN sed -i \
   /start.sh.base
 
 # Install Ollama
-RUN apt-get update && apt-get install -y --no-install-recommends \
-      curl ca-certificates \
-    && rm -rf /var/lib/apt/lists/* \
-    && curl -fsSL https://ollama.com/install.sh | sh
+#RUN apt-get update && apt-get install -y --no-install-recommends \
+#      curl ca-certificates \
+#    && rm -rf /var/lib/apt/lists/* \
+#    && curl -fsSL https://ollama.com/install.sh | sh
 
 # Build-time install of custom nodes via script
 COPY install-custom-nodes.sh /opt/install-custom-nodes.sh
