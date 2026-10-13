@@ -10,6 +10,11 @@ RUN sed -i \
   -e 's|^python main\.py |"$VENV_DIR/bin/python" main.py |' \
   /start.sh.base
 
+# Change comfyui install destination to /opt/runpod-slim stop it being loaded to persistent storage
+RUN sed -i \
+  -e 's|^COMFYUI_DIR="/workspace/runpod-slim/ComfyUI"$|COMFYUI_DIR="/opt/runpod-slim/ComfyUI"|' \
+  /start.sh.base
+
 # Install Ollama - fails on dependencies - fix if wanting to use
 #RUN apt-get update && apt-get install -y --no-install-recommends \
 #      curl ca-certificates \
