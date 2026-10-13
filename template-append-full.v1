@@ -10,7 +10,7 @@ RUN sed -i \
   -e 's|^python main\.py |"$VENV_DIR/bin/python" main.py |' \
   /start.sh.base
 
-# Install Ollama
+# Install Ollama - fails on dependencies - fix if wanting to use
 #RUN apt-get update && apt-get install -y --no-install-recommends \
 #      curl ca-certificates \
 #    && rm -rf /var/lib/apt/lists/* \
