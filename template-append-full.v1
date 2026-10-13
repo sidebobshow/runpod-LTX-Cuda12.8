@@ -1,0 +1,15 @@
+FROM runpod/comfyui:cuda12.8
+SHELL ["/bin/bash", "-lc"]
+
+# Move original entrypoint out of the way (first build only)
+RUN mv /start.sh /start.sh.base
+
+# Patch ComfyUI launch + pip warmup to use venv python explicitly
+RUN sed -i \
+  -e 's|^time python -m pip --version|time "$VENV_DIR/bin/python" -m pip --version|' \
+  -e 's|^python main\.py |"$VENV_DIR/bin/python" main.py |' \
+  /start.sh.base
+
+# Install wrapper entrypoint
+COPY start-wrapper.sh /start.sh
+RUN chmod +x /start.sh
