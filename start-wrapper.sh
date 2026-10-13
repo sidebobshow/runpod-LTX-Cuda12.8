@@ -9,5 +9,8 @@ else
   echo "[wrapper] no executable /workspace/start.sh (skipping)"
 fi
 
+# Create comfyui destination folder
+mkdir -p /opt/runpod-slim
+
 # Continue with the original Runpod ComfyUI startup
 exec /start.sh.base "$@"
