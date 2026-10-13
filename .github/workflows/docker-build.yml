@@ -28,4 +28,4 @@ jobs:
           context: .
           file: template-append-full.v1
           push: true
-          tags: sidebobshow/comfyui-ltx-cuda12.8:v2
+          tags: sidebobshow/comfyui-ltx-full-cuda12.8:v1
