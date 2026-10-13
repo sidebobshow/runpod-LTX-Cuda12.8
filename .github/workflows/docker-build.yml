@@ -26,6 +26,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: template-append.v1
+          file: template-append.v2
           push: true
-          tags: sidebobshow/comfyui-ltx-cuda12.8:v1
+          tags: sidebobshow/comfyui-ltx-cuda12.8:v2
