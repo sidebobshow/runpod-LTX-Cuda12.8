@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+COMFY_DIR="/workspace/runpod-slim/ComfyUI"
+NODES_DIR="$COMFY_DIR/custom_nodes"
+
+mkdir -p "$NODES_DIR"
+cd "$NODES_DIR"
+
+# Bjornulf custom nodes
+# Replace URL if your workflow uses a different repo fork.
+git clone --depth 1 https://github.com/Bjornulf/ComfyUI_Bjornulf_CustomNodes.git bjornulf_custom_nodes || true
+
+# Install python deps for all nodes that have requirements.txt
+cd "$COMFY_DIR"
+source "$COMFY_DIR/.venv-cu128/bin/activate"
+
+for req in $(find "$NODES_DIR" -maxdepth 2 -name requirements.txt); do
+  pip install --no-cache-dir -r "$req"
+done
