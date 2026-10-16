@@ -1,2 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
 
+COMFY_DIR="/workspace/runpod-slim/ComfyUI"
+NODES_DIR="$COMFY_DIR/custom_nodes"
+
+mkdir -p "$NODES_DIR"
+cd "$NODES_DIR"
+
+# Required for best face ID
 git clone --depth 1 https://github.com/alisson-anjos/ComfyUI-BFSNodes
