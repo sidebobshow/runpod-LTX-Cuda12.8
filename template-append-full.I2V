@@ -22,7 +22,7 @@ RUN sed -i \
 #    && curl -fsSL https://ollama.com/install.sh | sh
 
 # Build-time install of custom nodes via script
-#COPY install-custom-nodes.sh /opt/install-custom-nodes.sh
+#COPY install-custom-nodes.I2V /opt/install-custom-nodes.sh
 #RUN chmod +x /opt/install-custom-nodes.sh && /opt/install-custom-nodes.sh
 
 # Add model paths for global volume
