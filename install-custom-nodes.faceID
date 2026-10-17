@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-COMFY_DIR="/workspace/runpod-slim/ComfyUI"
+COMFY_DIR="/opt/runpod-slim/ComfyUI"
 NODES_DIR="$COMFY_DIR/custom_nodes"
 
 mkdir -p "$NODES_DIR"
