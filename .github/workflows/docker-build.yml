@@ -26,6 +26,14 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: template-append-full.v1
+          file: template-append-full.I2V
           push: true
-          tags: sidebobshow/comfyui-ltx-full-cuda12.8:v1
+          tags: sidebobshow/comfyui-ltx:i2v
+
+      - name: Build and push FaceID
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: template-append-full.faceID
+          push: true
+          tags: sidebobshow/comfyui-ltx:faceid
