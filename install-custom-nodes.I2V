@@ -1,19 +1,27 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-COMFY_DIR="/workspace/runpod-slim/ComfyUI"
+COMFY_DIR="/opt/runpod-slim/ComfyUI"
 NODES_DIR="$COMFY_DIR/custom_nodes"
 
 mkdir -p "$NODES_DIR"
 cd "$NODES_DIR"
 
 # Bjornulf custom nodes
-# Replace URL if your workflow uses a different repo fork.
-git clone --depth 1 https://github.com/Bjornulf/ComfyUI_Bjornulf_CustomNodes.git bjornulf_custom_nodes
+# git clone --depth 1 https://github.com/Bjornulf/ComfyUI_Bjornulf_CustomNodes.git bjornulf_custom_nodes
 
 # ComfyUI-CustomVideoSave / [ Called confusingly Video Combine (Custom Path)]
 # Saves video, fnl images, prompt, workflow json. No video combine 
 git clone --depth 1 https://github.com/Slartibart23/ComfyUI-CustomVideoSave
+
+# Load and save image from path
+git clone --depth 1 https://github.com/Ryuukeisyou/comfyui_io_helpers
+
+# Load video from path
+git clone --depth 1 https://github.com/rookiestar28/ComfyUI-VideoHelper-Adv
+
+# Load and save text
+git clone --depth 1 https://github.com/watarika/ComfyUI-Text-Utility
 
 # Install python deps for all nodes that have requirements.txt
 cd "$COMFY_DIR"
