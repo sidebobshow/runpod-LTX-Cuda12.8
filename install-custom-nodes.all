@@ -34,6 +34,9 @@ git clone --depth 1 https://github.com/rookiestar28/ComfyUI-VideoHelper-Adv
 # Load and save text
 git clone --depth 1 https://github.com/watarika/ComfyUI-Text-Utility
 
+# Preview video
+git clone https://github.com/elgalardi/ComfyUI-PreviewVideo
+
 ########## Dependencies ##########
 
 # basic requirements
