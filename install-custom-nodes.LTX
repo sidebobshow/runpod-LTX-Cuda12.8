@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -e
+
+COMFY_BAKED_DIR="/opt/comfyui-baked"
+CUSTOM_NODES_DIR="${COMFY_BAKED_DIR}/custom_nodes"
+
+mkdir -p "$CUSTOM_NODES_DIR"
+cd "$CUSTOM_NODES_DIR"
+
+# get custom nodes
+git clone --depth 1 https://github.com/alisson-anjos/ComfyUI-BFSNodes bfsnodes
+git clone --depth 1 https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite comfyui-videohelpersuite
+git clone --depth 1 https://github.com/city96/ComfyUI-GGUF ComfyUI-GGUF
+
+# basic requirements
+python3 -m pip install --no-cache-dir -U pip setuptools wheel
+
+# node requirements
+for req in /opt/comfyui-baked/custom_nodes/*/requirements.txt; do
+  [ -f "$req" ] && python3 -m pip install --no-cache-dir -r "$req"
+done
