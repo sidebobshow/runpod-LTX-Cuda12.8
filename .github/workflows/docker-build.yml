@@ -26,8 +26,10 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: image-append.I2V
+          #file: image-append.I2V
           #file: image-append.faceID
+          file: image-append.LTX
           push: true
-          tags: sidebobshow/comfyui-ltx:i2v
+          #tags: sidebobshow/comfyui-ltx:i2v
           #tags: sidebobshow/comfyui-ltx:faceid
+          tags: sidebobshow/comfyui-ltx:ltx
