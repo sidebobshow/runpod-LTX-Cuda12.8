@@ -1,4 +1,4 @@
-FROM runpod/comfyui:cuda12.8
+FROM runpod/comfyui@sha256:2cb4015beb6e16b0bbc05ed5d1e39288545b7f4ce8fed9534f4ef0fa88aa2e4d
 SHELL ["/bin/bash", "-lc"]
 
 # Rename original start.sh so start-wrapper.sh can call it
