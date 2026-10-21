@@ -1,21 +1,18 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -e
 
-COMFY_DIR="/opt/comfyui-baked"
-NODES_DIR="$COMFY_DIR/custom_nodes"
+COMFY_BAKED_DIR="/opt/comfyui-baked"
+CUSTOM_NODES_DIR="${COMFY_BAKED_DIR}/custom_nodes"
 
-mkdir -p "$NODES_DIR"
-cd "$NODES_DIR"
+mkdir -p "$CUSTOM_NODES_DIR"
+cd "$CUSTOM_NODES_DIR"
 
-# Required for best face ID
-git clone --depth 1 https://github.com/alisson-anjos/ComfyUI-BFSNodes
-git clone --depth 1 https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite
-git clone --depth 1 https://github.com/city96/ComfyUI-GGUF
+git clone --depth 1 https://github.com/alisson-anjos/ComfyUI-BFSNodes bfsnodes
+git clone --depth 1 https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite comfyui-videohelpersuite
+git clone --depth 1 https://github.com/city96/ComfyUI-GGUF ComfyUI-GGUF
 
-# Install python deps for all nodes that have requirements.txt
-cd "$COMFY_DIR"
-source "$COMFY_DIR/.venv-cu128/bin/activate"
+python3 -m pip install --no-cache-dir -U pip setuptools wheel
 
-for req in $(find "$NODES_DIR" -maxdepth 2 -name requirements.txt); do
-  pip install --no-cache-dir -r "$req"
-done
+python3 -m pip install --no-cache-dir -r "${CUSTOM_NODES_DIR}/bfsnodes/requirements.txt"
+python3 -m pip install --no-cache-dir -r "${CUSTOM_NODES_DIR}/comfyui-videohelpersuite/requirements.txt"
+python3 -m pip install --no-cache-dir -r "${CUSTOM_NODES_DIR}/ComfyUI-GGUF/requirements.txt"
