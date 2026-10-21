@@ -28,8 +28,8 @@ jobs:
           context: .
           #file: image-append.I2V
           #file: image-append.faceID
-          file: image-append.LTX
+          file: image-append.all
           push: true
           #tags: sidebobshow/comfyui-ltx:i2v
           #tags: sidebobshow/comfyui-ltx:faceid
-          tags: sidebobshow/comfyui-ltx:ltx
+          tags: sidebobshow/comfyui-ltx:all
