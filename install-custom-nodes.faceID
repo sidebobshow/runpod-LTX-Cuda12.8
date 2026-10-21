@@ -12,3 +12,10 @@ git clone --depth 1 https://github.com/alisson-anjos/ComfyUI-BFSNodes
 git clone --depth 1 https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite
 git clone --depth 1 https://github.com/city96/ComfyUI-GGUF
 
+# Install python deps for all nodes that have requirements.txt
+cd "$COMFY_DIR"
+source "$COMFY_DIR/.venv-cu128/bin/activate"
+
+for req in $(find "$NODES_DIR" -maxdepth 2 -name requirements.txt); do
+  pip install --no-cache-dir -r "$req"
+done
