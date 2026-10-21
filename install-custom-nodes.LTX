@@ -7,10 +7,34 @@ CUSTOM_NODES_DIR="${COMFY_BAKED_DIR}/custom_nodes"
 mkdir -p "$CUSTOM_NODES_DIR"
 cd "$CUSTOM_NODES_DIR"
 
-# get custom nodes
+############## Custom Nodes #############
+
+# BFS needed for face ID
 git clone --depth 1 https://github.com/alisson-anjos/ComfyUI-BFSNodes bfsnodes
+
+# VHS
 git clone --depth 1 https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite comfyui-videohelpersuite
+
+## GGUF loader
 git clone --depth 1 https://github.com/city96/ComfyUI-GGUF ComfyUI-GGUF
+
+# Bjornulf custom nodes
+# git clone --depth 1 https://github.com/Bjornulf/ComfyUI_Bjornulf_CustomNodes.git bjornulf_custom_nodes
+
+# ComfyUI-CustomVideoSave / [ Called confusingly Video Combine (Custom Path)]
+# Saves video, fnl images, prompt, workflow json. No video combine 
+git clone --depth 1 https://github.com/Slartibart23/ComfyUI-CustomVideoSave
+
+# Load and save image from path
+git clone --depth 1 https://github.com/Ryuukeisyou/comfyui_io_helpers
+
+# Load video from path
+git clone --depth 1 https://github.com/rookiestar28/ComfyUI-VideoHelper-Adv
+
+# Load and save text
+git clone --depth 1 https://github.com/watarika/ComfyUI-Text-Utility
+
+########## Dependencies ##########
 
 # basic requirements
 python3 -m pip install --no-cache-dir -U pip setuptools wheel
