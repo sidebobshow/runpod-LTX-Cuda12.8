@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -e
 
-COMFY_DIR="/opt/comfyui-baked"
-NODES_DIR="$COMFY_DIR/custom_nodes"
+COMFY_BAKED_DIR="/opt/comfyui-baked"
+CUSTOM_NODES_DIR="${COMFY_BAKED_DIR}/custom_nodes"
 
-mkdir -p "$NODES_DIR"
-cd "$NODES_DIR"
+mkdir -p "$CUSTOM_NODES_DIR"
+cd "$CUSTOM_NODES_DIR"
+
+# GGUF loaded
+git clone --depth 1 https://github.com/city96/ComfyUI-GGUF ComfyUI-GGUF
 
 # Bjornulf custom nodes
 # git clone --depth 1 https://github.com/Bjornulf/ComfyUI_Bjornulf_CustomNodes.git bjornulf_custom_nodes
@@ -23,10 +26,11 @@ git clone --depth 1 https://github.com/rookiestar28/ComfyUI-VideoHelper-Adv
 # Load and save text
 git clone --depth 1 https://github.com/watarika/ComfyUI-Text-Utility
 
-# Install python deps for all nodes that have requirements.txt
-cd "$COMFY_DIR"
-source "$COMFY_DIR/.venv-cu128/bin/activate"
+# basic requirements
+python3 -m pip install --no-cache-dir -U pip setuptools wheel
 
-for req in $(find "$NODES_DIR" -maxdepth 2 -name requirements.txt); do
-  pip install --no-cache-dir -r "$req"
+# node requirements
+for req in /opt/comfyui-baked/custom_nodes/*/requirements.txt; do
+  [ -f "$req" ] && python3 -m pip install --no-cache-dir -r "$req"
 done
+
