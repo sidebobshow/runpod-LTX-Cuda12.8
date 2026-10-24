@@ -16,7 +16,7 @@ git clone --depth 1 https://github.com/alisson-anjos/ComfyUI-BFSNodes bfsnodes
 #git clone --depth 1 https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite comfyui-videohelpersuite
 
 ## GGUF loader
-git clone --depth 1 https://github.com/city96/ComfyUI-GGUF ComfyUI-GGUF
+git clone --depth 1 https://github.com/molbal/ComfyUI-GGUF
 
 # Bjornulf custom nodes
 # git clone --depth 1 https://github.com/Bjornulf/ComfyUI_Bjornulf_CustomNodes.git bjornulf_custom_nodes
@@ -36,6 +36,10 @@ git clone --depth 1 https://github.com/watarika/ComfyUI-Text-Utility
 
 # Preview video
 git clone https://github.com/elgalardi/ComfyUI-PreviewVideo
+
+# Smart switches
+git clone --depth 1 https://github.com/rgthree/rgthree-comfy
+
 
 ########## Dependencies ##########
 
