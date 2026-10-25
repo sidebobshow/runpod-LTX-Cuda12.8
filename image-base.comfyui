@@ -1,14 +1,25 @@
 FROM runpod/comfyui@sha256:2cb4015beb6e16b0bbc05ed5d1e39288545b7f4ce8fed9534f4ef0fa88aa2e4d
 SHELL ["/bin/bash", "-lc"]
 
+# Needed for git checkout
+RUN apt-get update && apt-get install -y --no-install-recommends git \
+ && rm -rf /var/lib/apt/lists/*
+
 # Pin to a specific ComfyUI tag (recommended)
 ARG COMFYUI_TAG=v0.42.5
 RUN cd /opt/comfyui-baked \
  && git fetch --tags --force \
  && git checkout "${COMFYUI_TAG}"
 
+# Install the matching python deps for this ComfyUI version
+# (frontend package, workflow templates, embedded docs, comfy-aimdo, etc.)
+RUN python3 -m pip install --no-cache-dir -U pip \
+ && python3 -m pip install --no-cache-dir -r /opt/comfyui-baked/requirements.txt
+
 # --- Alternative: always latest (uncomment if you prefer, not reproducible) ---
 # RUN cd /opt/comfyui-baked \
 #  && git fetch origin --prune \
 #  && git checkout master \
-#  && git pull --ff-only
+#  && git pull --ff-only \
+#  && python3 -m pip install --no-cache-dir -U pip \
+#  && python3 -m pip install --no-cache-dir -r /opt/comfyui-baked/requirements.txt
