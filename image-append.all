@@ -19,6 +19,8 @@ RUN sed -i \
   -e 's|^COMFYUI_DIR="/workspace/runpod-slim/ComfyUI"$|COMFYUI_DIR="/opt/runpod-slim/ComfyUI"|' \
   /start.sh.base
 
+RUN rm -f /opt/comfyui-baked/default_workflow.json
+
 ######## Models ########
 
 # Add model paths for global volume
