@@ -29,7 +29,10 @@ git clone --depth 1 https://github.com/Slartibart23/ComfyUI-CustomVideoSave
 git clone --depth 1 https://github.com/Ryuukeisyou/comfyui_io_helpers
 
 # Load video from path
-git clone --depth 1 https://github.com/rookiestar28/ComfyUI-VideoHelper-Adv
+# git clone --depth 1 https://github.com/rookiestar28/ComfyUI-VideoHelper-Adv
+
+# Load video and output video (not image batch)
+git clone --depth 1 https://github.com/ChrisColeTech/ComfyUI-Get-Random-File
 
 # Load and save text
 git clone --depth 1 https://github.com/watarika/ComfyUI-Text-Utility
