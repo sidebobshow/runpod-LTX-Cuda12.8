@@ -14,10 +14,18 @@ RUN sed -i \
   -e 's|^time python -m pip --version|time "$VENV_DIR/bin/python" -m pip --version|' \
   -e 's|^python main\.py |"$VENV_DIR/bin/python" main.py |' \
   /start.sh.base
+
 # Change comfyui install destination to /opt/runpod-slim stop it being loaded to persistent storage
 RUN sed -i \
   -e 's|^COMFYUI_DIR="/workspace/runpod-slim/ComfyUI"$|COMFYUI_DIR="/opt/runpod-slim/ComfyUI"|' \
   /start.sh.base
+
+# Make Jupyter open in output dir
+RUN mkdir -p /opt/runpod-slim/ComfyUI/output
+RUN sed -i \
+  's|nohup jupyter lab \\|nohup jupyter lab \\\n        --ServerApp.root_dir=/opt/runpod-slim/ComfyUI/output \\|' \
+  /start.sh.base
+
 
 RUN rm -f /opt/comfyui-baked/default_workflow.json
 
