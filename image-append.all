@@ -25,7 +25,9 @@ RUN mkdir -p /opt/runpod-slim/ComfyUI/output
 RUN sed -i \
   's|^[[:space:]]*--ServerApp\.root_dir=/workspace[[:space:]]*\\|        --ServerApp.root_dir=/opt/runpod-slim/ComfyUI/output \\|' \
   /start.sh.base
-RUN sed -i '/FileContentsManager\.preferred_dir/d' /start.sh.base
+RUN sed -i \
+  '/FileContentsManager\.preferred_dir/d' \
+  /start.sh.base
 
 RUN rm -f /opt/comfyui-baked/default_workflow.json
 
