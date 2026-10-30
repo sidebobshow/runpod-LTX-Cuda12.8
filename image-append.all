@@ -23,9 +23,8 @@ RUN sed -i \
 # Make Jupyter open in output dir
 RUN mkdir -p /opt/runpod-slim/ComfyUI/output
 RUN sed -i \
-  's|nohup jupyter lab \\|nohup jupyter lab \\\n        --ServerApp.root_dir=/opt/runpod-slim/ComfyUI/output \\|' \
+  's|^[[:space:]]*--ServerApp\.root_dir=/workspace[[:space:]]*\\|        --ServerApp.root_dir=/opt/runpod-slim/ComfyUI/output \\|' \
   /start.sh.base
-
 
 RUN rm -f /opt/comfyui-baked/default_workflow.json
 
