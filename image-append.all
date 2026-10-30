@@ -19,8 +19,10 @@ RUN sed -i \
 RUN sed -i \
   -e 's|^COMFYUI_DIR="/workspace/runpod-slim/ComfyUI"$|COMFYUI_DIR="/opt/runpod-slim/ComfyUI"|' \
   /start.sh.base
-# Make it overwrite custom_nodes
+# Make it overwrite custom_nodes and model paths config
 RUN sed -i '/--exclude="\/custom_nodes"/d' /start.sh.base
+RUN sed -i '/--exclude="\/extra_model_paths\.yaml"/d' /start.sh.base
+
 
 
 # Make Jupyter open in output dir
