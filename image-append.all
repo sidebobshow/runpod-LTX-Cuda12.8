@@ -19,6 +19,9 @@ RUN sed -i \
 RUN sed -i \
   -e 's|^COMFYUI_DIR="/workspace/runpod-slim/ComfyUI"$|COMFYUI_DIR="/opt/runpod-slim/ComfyUI"|' \
   /start.sh.base
+# Make it overwrite custom_nodes
+RUN sed -i '/--exclude="\/custom_nodes"/d' /start.sh.base
+
 
 # Make Jupyter open in output dir
 RUN mkdir -p /opt/runpod-slim/ComfyUI/output
