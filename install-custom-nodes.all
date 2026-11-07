@@ -9,17 +9,11 @@ cd "$CUSTOM_NODES_DIR"
 
 ############## Custom Nodes #############
 
-# BFS needed for face ID
-git clone --depth 1 https://github.com/alisson-anjos/ComfyUI-BFSNodes bfsnodes
-
-# VHS
-#git clone --depth 1 https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite comfyui-videohelpersuite
-
 ## GGUF loader
 git clone --depth 1 https://github.com/molbal/ComfyUI-GGUF
 
-# Bjornulf custom nodes
-# git clone --depth 1 https://github.com/Bjornulf/ComfyUI_Bjornulf_CustomNodes.git bjornulf_custom_nodes
+# BFS needed for face ID
+git clone --depth 1 https://github.com/alisson-anjos/ComfyUI-BFSNodes bfsnodes
 
 # ComfyUI-CustomVideoSave / [ Called confusingly Video Combine (Custom Path)]
 # Saves video, fnl images, prompt, workflow json. No video combine 
@@ -34,15 +28,23 @@ git clone --depth 1 https://github.com/Ryuukeisyou/comfyui_io_helpers
 # Load video and output video (not image batch)
 git clone --depth 1 https://github.com/ChrisColeTech/ComfyUI-Get-Random-File
 
+# Load and save text (no cache)
+git clone --depth 1 https://github.com/steelan9199/ComfyUI-Teeth
+
 # Load and save text
 git clone --depth 1 https://github.com/watarika/ComfyUI-Text-Utility
-
-# Preview video
-git clone https://github.com/elgalardi/ComfyUI-PreviewVideo
 
 # Smart switches
 git clone --depth 1 https://github.com/rgthree/rgthree-comfy
 
+# VHS
+git clone --depth 1 https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite comfyui-videohelpersuite
+
+# Preview video
+# git clone https://github.com/elgalardi/ComfyUI-PreviewVideo
+
+# Bjornulf custom nodes
+# git clone --depth 1 https://github.com/Bjornulf/ComfyUI_Bjornulf_CustomNodes.git bjornulf_custom_nodes
 
 ########## Dependencies ##########
 
