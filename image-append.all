@@ -23,8 +23,6 @@ RUN sed -i \
 RUN sed -i '/--exclude="\/custom_nodes"/d' /start.sh.base
 RUN sed -i '/--exclude="\/extra_model_paths\.yaml"/d' /start.sh.base
 
-
-
 # Make Jupyter open in output dir
 RUN mkdir -p /opt/runpod-slim/ComfyUI/output
 RUN sed -i \
@@ -46,7 +44,7 @@ COPY extra_model_paths.yaml /opt/comfyui-baked/extra_model_paths.yaml
 # --user-directory /workspace/user
 # --output-directory /workspace/output
 # --input-directory /workspace/output/input
-
+RUN ln
 
 ######## Custom Nodes #########
 
