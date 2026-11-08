@@ -65,12 +65,3 @@ for req in /opt/comfyui-baked/custom_nodes/*/requirements.txt; do
     | grep -vE "$BLACKLIST_RE" \
     | python3 -m pip install --no-cache-dir -r /dev/stdin
 done
-
-
-
-######
-
-
-for req in /opt/comfyui-baked/custom_nodes/*/requirements.txt; do
-  [ -f "$req" ] && python3 -m pip install --no-cache-dir -r "$req"
-done
