@@ -53,7 +53,7 @@ git clone --depth 1 https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite comf
 python3 -m pip install --no-cache-dir -U pip setuptools wheel
 
 ### node requirements
-BLACKLIST_RE='^(torch|torchvision|torchaudio|google-genai|qwen-tts|omnivoice|gradio|tensorboardx|webdataset)$'
+BLACKLIST_RE='^(torch|torchvision|torchaudio|qwen-tts|omnivoice|gradio|tensorboardx|webdataset)$'
 
 for req in /opt/comfyui-baked/custom_nodes/*/requirements.txt; do
   [ -f "$req" ] || continue
