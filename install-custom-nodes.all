@@ -30,7 +30,7 @@ git clone --depth 1 https://github.com/Ryuukeisyou/comfyui_io_helpers
 git clone --depth 1 https://github.com/ChrisColeTech/ComfyUI-Get-Random-File
 
 # Load and save text (no cache)
-git clone --depth 1 https://github.com/steelan9199/ComfyUI-Teeth
+git clone --depth 1 https://github.com/sidebobshow/ComfyUI-Teeth 
 
 # Load and save text
 git clone --depth 1 https://github.com/watarika/ComfyUI-Text-Utility
