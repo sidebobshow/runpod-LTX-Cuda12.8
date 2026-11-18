@@ -8,6 +8,19 @@ if [[ -x /workspace/start.sh ]]; then
 else
   echo "[wrapper] no executable /workspace/start.sh (skipping)"
 fi
+ 
+# Copy models
+SRC=/workspace/models
+DST=/opt/runpod-slim/ComfyUI/models
+(
+ rsync -a --ignore-existing "$SRC/" "$DST/"
+ if [ $? -eq 0 ]; then
+    echo "############### Model Copy Complete ###############"
+    echo "# Press "r" in ComfyUI to refresh model list
+ else
+    echo "[Error] Model copy failed (rsync)"
+ fi
+) &
 
 # Create comfyui destination folder
 mkdir -p /opt/runpod-slim
