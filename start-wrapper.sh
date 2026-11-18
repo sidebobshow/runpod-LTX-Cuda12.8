@@ -16,7 +16,7 @@ DST=/opt/runpod-slim/ComfyUI/models
  rsync -a --ignore-existing "$SRC/" "$DST/"
  if [ $? -eq 0 ]; then
     echo "############### Model Copy Complete ###############"
-    echo "# Press "r" in ComfyUI to refresh model list
+    echo "# Press r in ComfyUI to refresh model list"
  else
     echo "[Error] Model copy failed (rsync)"
  fi
