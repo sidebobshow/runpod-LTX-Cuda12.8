@@ -1,5 +1,5 @@
 local_models:
-  base_path: /tmp/models/
+  base_path: /opt/runpod-slim/ComfyUI/models/
 
   checkpoints: checkpoints/
   configs: configs/
