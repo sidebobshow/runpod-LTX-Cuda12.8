@@ -2,12 +2,25 @@ local_models:
   base_path: /tmp/models/
 
   checkpoints: checkpoints/
-  diffusion_models: |
-    diffusion_models/
-    unet/
+  configs: configs/
+  vae: vae/
+  loras: loras/
+  embeddings: embeddings/
+  clip_vision: clip_vision/
+  controlnet: controlnet/
+  upscale_models: upscale_models/
+  latent_upscale_models: latent_upscale_models/
+
   text_encoders: |
     text_encoders/
     clip/
+
+  diffusion_models: |
+    diffusion_models/
+    unet/
+
+  audio_encoders: audio_encoders/
+  model_patches: model_patches/
 
 runpod_models:
   base_path: /workspace/models/
