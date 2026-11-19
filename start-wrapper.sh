@@ -10,7 +10,7 @@ else
 fi
  
 # Copy models
-SRC=/workspace/models
+SRC=/workspace/models.store
 DST=/opt/runpod-slim/ComfyUI/models
 (
  rsync -a --info=name2 --ignore-existing "$SRC/" "$DST/"
