@@ -13,7 +13,7 @@ fi
 SRC=/workspace/models
 DST=/opt/runpod-slim/ComfyUI/models
 (
- rsync -a --ignore-existing "$SRC/" "$DST/"
+ rsync -a --info=name2 --ignore-existing "$SRC/" "$DST/"
  if [ $? -eq 0 ]; then
     echo "############### Model Copy Complete ###############"
     echo "# Press r in ComfyUI to refresh model list"
