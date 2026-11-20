@@ -17,7 +17,7 @@ DST=/opt/runpod-slim/ComfyUI/models
   | sed -u 's/^/####### [model-sync] Copying : /'
  if [ $? -eq 0 ]; then
     echo "############### Model Copy Complete ###############"
-    echo "# Press r in ComfyUI to refresh model list"
+    echo "# Restart ComfyUI and refresh to update model list"
  else
     echo "[Error] Model copy failed (rsync)"
  fi
